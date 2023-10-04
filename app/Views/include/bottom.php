@@ -5,5 +5,4 @@
   <script src="<?= base_URL() ?>js/owl.carousel.min.js"></script>
   <script src="<?= base_URL() ?>js/jquery.magnific-popup.min.js"></script>
   <script src="<?= base_URL() ?>js/aos.js"></script>
-
   <script src="<?= base_URL() ?>js/main.js"></script>

@@ -8,5 +8,15 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 $routes->get('/', 'Home::index');
-$routes->get('test', 'MainProductController::test');
+$routes->get('/main', 'MainProductController::test');
 
+
+$routes->get('/login', 'UserController::login');
+
+$routes->post('/login', 'UserController::authenticate');
+
+$routes->get('/register', 'UserController::register');
+
+$routes->post('/register', 'UserController::createUser');
+
+$routes->get('/logout', 'UserController::logout');
