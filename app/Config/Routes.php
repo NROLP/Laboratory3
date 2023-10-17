@@ -7,16 +7,10 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-$routes->get('/', 'Home::index');
-$routes->get('/main', 'MainProductController::test');
+$routes->get('MainPage', 'MainProductController::Main_Page'); // MAIN PAGE
 
+$routes->get('loginPage', 'UserController::loginPage'); // LOGIN ROUTE
+$routes->post('login', 'UserController::login');
 
-$routes->get('/login', 'UserController::login');
-
-$routes->post('/login', 'UserController::authenticate');
-
-$routes->get('/register', 'UserController::register');
-
-$routes->post('/register', 'UserController::createUser');
-
-$routes->get('/logout', 'UserController::logout');
+$routes->get('register', 'UserController::registerPage'); // REGISTER ROUTE
+$routes->post('register', 'UserController::register');

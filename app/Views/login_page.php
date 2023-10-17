@@ -18,43 +18,51 @@
 </head>
 
 <body>
-    <!-- Modal HTML -->
-    <div id="myModal">
-        <div class="modal-dialog modal-login">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="avatar">
-                        <img src="" alt="Avatar">
+<div id="myModal">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="avatar">
+                    <img src="images\icon_1.png" alt="Avatar">
+                </div>
+                <h4 class="modal-title">Member Login</h4>
+            </div>
+
+            <div class="modal-body">
+                <!-- Display error message if authentication fails -->
+                <?php if (session()->has('error')) : ?>
+                    <div class="alert alert-danger">
+                        <?= session('error') ?>
                     </div>
-                    <h4 class="modal-title">Member Login</h4>
-                </div>
+                <?php endif; ?>
 
-                <div class="modal-body">
-                    <!-- Login Form -->
-                    <form action='/main' method="get">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="username" placeholder="Username">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" name="password" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
-                        </div>
-                    </form>
-
-                    <!-- Registration Button -->
-                    <div>
-                        <a href="<?= site_url('register') ?>" class="btn btn-primary btn-block login-btn">Create an account</a>
+                <!-- Login Form -->
+                <form action="<?= site_url('login') ?>" method="post">
+                    <?= csrf_field() ?>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="username" placeholder="Username">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+                    </div>
+                </form>
 
-                <div class="modal-footer">
-                    <a href="#">Forgot Password?</a>
+                <!-- Registration Button -->
+                <div>
+                    <a href="<?= site_url('register') ?>" class="btn btn-primary btn-block login-btn">Create an account</a>
                 </div>
+            </div>
+
+            <div class="modal-footer">
+                <a href="#">Forgot Password?</a>
             </div>
         </div>
     </div>
+</div>
+
 </body>
 
 </html>

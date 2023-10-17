@@ -1,0 +1,292 @@
+CRITICAL - 2023-10-17 01:16:20 --> Call to undefined method App\Models\UserModel::getUserByUsername
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\UserController.php(27): CodeIgniter\Model->__call('getUserByUsername', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+CRITICAL - 2023-10-17 01:20:38 --> Call to undefined method App\Models\UserModel::getUsername
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\UserController.php(27): CodeIgniter\Model->__call('getUsername', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+CRITICAL - 2023-10-17 02:17:48 --> Call to undefined function App\Controllers\bool()
+in APPPATH\Controllers\UserController.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->login()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+ERROR - 2023-10-17 02:33:27 --> mysqli_sql_exception: Table 'lab3.users' doesn't exist in C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\Laboratory3\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\Laboratory3\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\Laboratory3\system\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'username', Array, NULL, 'username')
+#6 C:\laragon\www\Laboratory3\system\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', Array, Array)
+#7 C:\laragon\www\Laboratory3\system\Controller.php(150): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\Laboratory3\app\Controllers\UserController.php(61): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\Laboratory3\system\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+#10 C:\laragon\www\Laboratory3\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#11 C:\laragon\www\Laboratory3\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\Laboratory3\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\Laboratory3\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2023-10-17 02:33:27 --> Table 'lab3.users' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'username', [...], null, 'username')
+ 4 SYSTEMPATH\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', [...], [...])
+ 5 SYSTEMPATH\Controller.php(150): CodeIgniter\Validation\Validation->run()
+ 6 APPPATH\Controllers\UserController.php(61): CodeIgniter\Controller->validate([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+ERROR - 2023-10-17 02:35:02 --> mysqli_sql_exception: Table 'lab3.username' doesn't exist in C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\Laboratory3\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\Laboratory3\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\Laboratory3\system\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'username', Array, NULL, 'username')
+#6 C:\laragon\www\Laboratory3\system\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', Array, Array)
+#7 C:\laragon\www\Laboratory3\system\Controller.php(150): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\Laboratory3\app\Controllers\UserController.php(61): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\Laboratory3\system\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+#10 C:\laragon\www\Laboratory3\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#11 C:\laragon\www\Laboratory3\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\Laboratory3\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\Laboratory3\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2023-10-17 02:35:02 --> Table 'lab3.username' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `username`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'username', [...], null, 'username')
+ 4 SYSTEMPATH\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', [...], [...])
+ 5 SYSTEMPATH\Controller.php(150): CodeIgniter\Validation\Validation->run()
+ 6 APPPATH\Controllers\UserController.php(61): CodeIgniter\Controller->validate([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+ERROR - 2023-10-17 02:35:34 --> mysqli_sql_exception: Table 'lab3.username' doesn't exist in C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\Laboratory3\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\Laboratory3\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\Laboratory3\system\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'lab3', Array, NULL, 'username')
+#6 C:\laragon\www\Laboratory3\system\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', Array, Array)
+#7 C:\laragon\www\Laboratory3\system\Controller.php(150): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\Laboratory3\app\Controllers\UserController.php(61): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\Laboratory3\system\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+#10 C:\laragon\www\Laboratory3\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#11 C:\laragon\www\Laboratory3\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\Laboratory3\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\Laboratory3\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2023-10-17 02:35:34 --> Table 'lab3.username' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `username`
+WHERE `lab3` = :lab3:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'lab3', [...], null, 'username')
+ 4 SYSTEMPATH\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', [...], [...])
+ 5 SYSTEMPATH\Controller.php(150): CodeIgniter\Validation\Validation->run()
+ 6 APPPATH\Controllers\UserController.php(61): CodeIgniter\Controller->validate([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+ERROR - 2023-10-17 02:35:38 --> mysqli_sql_exception: Table 'lab3.username' doesn't exist in C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\Laboratory3\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\Laboratory3\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\Laboratory3\system\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'lab3', Array, NULL, 'username')
+#6 C:\laragon\www\Laboratory3\system\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', Array, Array)
+#7 C:\laragon\www\Laboratory3\system\Controller.php(150): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\Laboratory3\app\Controllers\UserController.php(61): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\Laboratory3\system\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+#10 C:\laragon\www\Laboratory3\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#11 C:\laragon\www\Laboratory3\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\Laboratory3\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\Laboratory3\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2023-10-17 02:35:38 --> Table 'lab3.username' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `username`
+WHERE `lab3` = :lab3:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'lab3', [...], null, 'username')
+ 4 SYSTEMPATH\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', [...], [...])
+ 5 SYSTEMPATH\Controller.php(150): CodeIgniter\Validation\Validation->run()
+ 6 APPPATH\Controllers\UserController.php(61): CodeIgniter\Controller->validate([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+ERROR - 2023-10-17 02:35:58 --> mysqli_sql_exception: Table 'lab3.lab3' doesn't exist in C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\Laboratory3\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\Laboratory3\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\Laboratory3\system\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'username', Array, NULL, 'username')
+#6 C:\laragon\www\Laboratory3\system\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', Array, Array)
+#7 C:\laragon\www\Laboratory3\system\Controller.php(150): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\Laboratory3\app\Controllers\UserController.php(61): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\Laboratory3\system\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+#10 C:\laragon\www\Laboratory3\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#11 C:\laragon\www\Laboratory3\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\Laboratory3\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\Laboratory3\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2023-10-17 02:35:58 --> Table 'lab3.lab3' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `lab3`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'username', [...], null, 'username')
+ 4 SYSTEMPATH\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', [...], [...])
+ 5 SYSTEMPATH\Controller.php(150): CodeIgniter\Validation\Validation->run()
+ 6 APPPATH\Controllers\UserController.php(61): CodeIgniter\Controller->validate([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+ERROR - 2023-10-17 02:36:11 --> mysqli_sql_exception: Table 'lab3.username' doesn't exist in C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\Laboratory3\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\Laboratory3\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\Laboratory3\system\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'username', Array, NULL, 'username')
+#6 C:\laragon\www\Laboratory3\system\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', Array, Array)
+#7 C:\laragon\www\Laboratory3\system\Controller.php(150): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\Laboratory3\app\Controllers\UserController.php(61): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\Laboratory3\system\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+#10 C:\laragon\www\Laboratory3\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#11 C:\laragon\www\Laboratory3\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\Laboratory3\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\Laboratory3\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2023-10-17 02:36:11 --> Table 'lab3.username' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `username`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'username', [...], null, 'username')
+ 4 SYSTEMPATH\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', [...], [...])
+ 5 SYSTEMPATH\Controller.php(150): CodeIgniter\Validation\Validation->run()
+ 6 APPPATH\Controllers\UserController.php(61): CodeIgniter\Controller->validate([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+ERROR - 2023-10-17 02:36:30 --> mysqli_sql_exception: Unknown column 'log_in' in 'where clause' in C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\Laboratory3\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\Laboratory3\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\Laboratory3\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\Laboratory3\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\Laboratory3\system\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'log_in', Array, NULL, 'username')
+#6 C:\laragon\www\Laboratory3\system\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', Array, Array)
+#7 C:\laragon\www\Laboratory3\system\Controller.php(150): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\Laboratory3\app\Controllers\UserController.php(61): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\Laboratory3\system\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+#10 C:\laragon\www\Laboratory3\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#11 C:\laragon\www\Laboratory3\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\Laboratory3\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\Laboratory3\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2023-10-17 02:36:30 --> Unknown column 'log_in' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `log_in`
+WHERE `log_in` = :log_in:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('admin', 'log_in', [...], null, 'username')
+ 4 SYSTEMPATH\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('username', 'username', 'admin', [...], [...])
+ 5 SYSTEMPATH\Controller.php(150): CodeIgniter\Validation\Validation->run()
+ 6 APPPATH\Controllers\UserController.php(61): CodeIgniter\Controller->validate([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->registerUser()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+CRITICAL - 2023-10-17 02:38:36 --> Invalid file: "register_page.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('register_page.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('register_page', [], true)
+ 3 APPPATH\Controllers\UserController.php(46): view('register_page')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->registerPage()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+CRITICAL - 2023-10-17 02:38:39 --> Invalid file: "register_page.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('register_page.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('register_page', [], true)
+ 3 APPPATH\Controllers\UserController.php(46): view('register_page')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->registerPage()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+CRITICAL - 2023-10-17 02:40:52 --> Invalid file: "register_page.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('register_page.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('register_page', [], true)
+ 3 APPPATH\Controllers\UserController.php(46): view('register_page')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->registerPage()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')
+CRITICAL - 2023-10-17 04:41:19 --> Call to undefined method App\Models\UserModel::verifyPassword
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\UserController.php(32): CodeIgniter\Model->__call('verifyPassword', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UserController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\Laboratory3\\public\\index.php')

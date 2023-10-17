@@ -7,73 +7,55 @@ use App\Models\UserModel;
 
 class UserController extends BaseController
 {
-    public function login()
+    protected $userModel;
+
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
+    }
+
+    public function loginPage() //DISPLAY LOGIN FORM
     {
         return view('login_page');
     }
 
-    public function authenticate()
+    public function login() //LOGIN LOGIC
     {
-        // Get the username and password from the form
-        $username = $this->request->getVar('username');
-        $password = $this->request->getVar('password');
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
 
-        // Load the UserModel
-        $model = new UserModel();
+        $user = $this->userModel->getUserByUsername($username);
 
-        // Check if the user exists in the database
-        $user = $model->where('username', $username)->first();
-
-        if ($user && password_verify($password, $user['password'])) {
-            // User is authenticated, you can set session data or redirect to the next page.
-            // For example, setting user data in session and redirecting to dashboard:
-            
-            $userData = [
-                'user_id' => $user['id'],
-                'username' => $user['username'],
-                // Add other user data here if needed
-            ];
-
-            // Store user data in session
-            session()->set($userData);
-
-            // Redirect to the dashboard or any other page
-            return redirect()->to('/main'); // Change '/dashboard' to your desired URL
-        } else {
-            // Authentication failed, redirect back to login page with an error message
-            return redirect()->to('/login')->with('error', 'Invalid username or password');
+        if ($user && $this->userModel->verifyPassword($password, $user['password'])) {
+            return redirect()->to(site_url('MainPage'));
         }
+        session()->setFlashdata('error', 'Invalid username or password.');
+        return redirect()->to(site_url('loginPage'));
     }
 
-    public function register()
+    public function registerPage() //DISPLAY REGISTER FORM
     {
-        // Load the registration view
-        return view('register');
+        return view('register_page');
     }
 
-    public function createUser()
+    public function register() //REGISTER NEW USER
     {
-        // Get the user registration data from the form
-        $data = [
-            'username' => $this->request->getVar('username'),
-            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-            // Add other user data here if needed
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
+        $confirmPassword = $this->request->getPost('confirm_password');
+
+        if ($password !== $confirmPassword) {
+            session()->setFlashdata('error', 'Passwords do not match.');
+            return redirect()->to(site_url('register'));
+        }
+
+        $userData = [
+            'username' => $username,
+            'password' => $password,
         ];
 
-        // Load the UserModel
-        $model = new UserModel();
-
-        // Insert the new user into the database
-        $model->insert($data);
-
-        // Redirect to the login page or any other page
-        return redirect()->to('/login_page'); // Change '/login' to your desired URL
-    }
-
-    public function logout()
-    {
-        // Destroy the user's session and redirect to the login page
-        session()->destroy();
-        return redirect()->to('/login_page'); // Change '/login' to your desired URL
+        $this->userModel->insert($userData);
+        session()->setFlashdata('success', 'Registration successful.');
+        return redirect()->to(site_url('loginPage'));
     }
 }
